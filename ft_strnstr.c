@@ -6,8 +6,11 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:13:33 by andmart2          #+#    #+#             */
-/*   Updated: 2023/05/02 18:13:35 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:17:43 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+char *strnstr(const char *big, const char *little, size_t len)
+{
 
+}

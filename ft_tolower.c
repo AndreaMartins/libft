@@ -6,8 +6,16 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:09:59 by andmart2          #+#    #+#             */
-/*   Updated: 2023/05/02 18:10:01 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:31:52 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+int ft_tolower(int c)
+{
+    if (c >= 'A' && c <= 'Z')
+        return c - 'A' + 'a';
+    else
+        return c;
+}

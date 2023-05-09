@@ -6,7 +6,7 @@
 #    By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 12:09:31 by andmart2          #+#    #+#              #
-#    Updated: 2023/05/08 14:18:50 by andmart2         ###   ########.fr        #
+#    Updated: 2023/05/09 16:33:19 by andmart2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,13 @@ SRCS = ft_strlen.c \
 	   ft_strchr.c \
 	   ft_strrchr.c \
 	   ft_strnstr.c \
+	   ft_memchr.c \
+	   ft_memcmp.c \
+	   ft_atoi.c \
+	   ft_calloc.c \
+	   ft_strdup.c \
+	   ft_substr.c \
+	   ft_strjoin.c \
 
 OBJS = $(SRCS:.c=.o)
 

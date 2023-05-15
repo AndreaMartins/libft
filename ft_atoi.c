@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:13:50 by andmart2          #+#    #+#             */
-/*   Updated: 2023/05/08 18:16:19 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/05/15 13:11:30 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 int	ft_atoi(const char *str)
 {
-	int i = 0;
-	int negative_counter = 0;
-	int number_print = 0;
+	int	i;
+	int	negative_counter;
+	int	number_print;
 
-	while ( (str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	i = 0;
+	negative_counter = 0;
+	number_print = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -31,10 +34,7 @@ int	ft_atoi(const char *str)
 		number_print = number_print * 10 + (str[i] - 48);
 		i++;
 	}
-	if (negative_counter ==  1)
+	if (negative_counter == 1)
 		return (number_print * -1);
 	return (number_print);
 }
-
-
-

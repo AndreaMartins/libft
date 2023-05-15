@@ -6,45 +6,32 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:30:32 by andmart2          #+#    #+#             */
-/*   Updated: 2023/05/03 12:19:41 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:16:08 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putnbr_fd(int n, int fd)
-{
+#include "libft.h"
 
-
-}
-void	ft_putchar(int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	c = c + 48;
-	write(1, &c, 1);
-}
-
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	if (n == -2147483648)
 	{
-		write(1, "-2147483648", 11);
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		n = 147483648;
 	}
-	else if (nb < 0)
+	else if (n < 0)
 	{
-		ft_putchar(-3);
-		ft_putnbr(nb * -1);
+		ft_putchar_fd('-', fd);
+		n = -n;
 	}
-	if (nb > 9)
+	if (n >= 10)
 	{
-		ft_putnbr(nb / 10);
-		nb = nb % 10;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
-	if (nb <= 9 && nb >= 0)
+	else
 	{
-		ft_putchar(nb);
+		ft_putchar_fd(n + '0', fd);
 	}
 }
-
-/*int	main(void)
-{
-	ft_putnbr(-2147483648);
-	return(0);
-}*/

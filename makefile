@@ -6,7 +6,7 @@
 #    By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 12:09:31 by andmart2          #+#    #+#              #
-#    Updated: 2023/05/09 16:33:19 by andmart2         ###   ########.fr        #
+#    Updated: 2023/05/10 14:08:58 by andmart2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,15 @@ SRCS = ft_strlen.c \
 	   ft_strdup.c \
 	   ft_substr.c \
 	   ft_strjoin.c \
+	   ft_strtrim.c \
+	   ft_putendl_fd.c \
+	   ft_putchar_fd.c \
+	   ft_putnbr_fd.c \
+	   ft_putstr_fd.c \
+	   ft_striteri.c \
+	   *ft_strmapi.c \
+	   *ft_itoa.c \
+	   **ft_split.c \
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,8 +6,14 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:27:42 by andmart2          #+#    #+#             */
-/*   Updated: 2023/05/02 18:27:45 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:42:39 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
+/*char	*ft_itoa(int n)
+{
+	int		is_negative;
+	int		num_length;
+	char	*str;
 
-
+}*/

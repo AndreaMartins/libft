@@ -6,7 +6,7 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:10:25 by andmart2          #+#    #+#             */
-/*   Updated: 2023/05/04 18:02:18 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:36:45 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-	char cc;
+	int		i;
+	char	cc;
 
 	cc = (char)c;
 	i = 0;
@@ -29,5 +29,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)&s[i]);
 	return (NULL);
 }
-
-

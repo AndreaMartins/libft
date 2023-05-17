@@ -6,8 +6,22 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:28:28 by andmart2          #+#    #+#             */
-/*   Updated: 2023/05/02 18:28:30 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:32:12 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
 
+	if (s && f)
+	{	
+		i = 0;
+		while (*s)
+		{
+			f(i, s);
+			i++;
+			s++;
+		}
+	}
+}

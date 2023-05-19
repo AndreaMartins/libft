@@ -6,106 +6,94 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:27:15 by andmart2          #+#    #+#             */
-/*   Updated: 2023/05/18 20:33:54 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/05/19 21:11:01 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 #include "libft.h"
 
-static unsigned int    count_substr(const char *s, char c)
+static unsigned int    count_substr(const char *str, char c)
 {
-    printf("esteeselstring%s\n", s);
-    printf("character%c\n", c);
-    unsigned int    i;
     unsigned int     num;
-    char *str = "hola";
 
-    i = 0;
     num = 0;
-    while (*str && i < 1)
+    while (*str)
     {
-        printf("loop1i\n");
         while (*str == c)
-        {
             str++;
-            printf("loop2\n");
-        }
+		if (*str)
+			num++;
         while (*str && *str != c)
-        {
             str++;
-            printf("loop3\n");
-        }
-        num++;
-        i++;
-        printf("fin\n");
     }
-    printf("salio del while %u", num);
     return (num);
 }
 
-static char **allocate_substr(unsigned int num_substr)
+static char	**ft_freematrix(char **matrix, unsigned int i)
 {
-	char	**allocated;
-
-	printf("esteeselallocate");
-	allocated = (char**) malloc((num_substr + 1) * sizeof(char *));
-	return (allocated);
+	while(0 < i--)
+		free(matrix[i]);
+	free(matrix);
+	return(NULL);
 }
 
-static char **extract_substr(char **to_allocate, const char *s, char c) 
-{
-	const char 			*copy_s;
-	size_t				sub_index;//index of allocate
-	size_t				sub_len;//len of each sub string it gets initialized
-	size_t				sub_start;//where to start next word of s
-
-	sub_index = 0;
-	sub_len = 0;
-	sub_start = 0;
-	copy_s = s;
-	while (copy_s)
-	{
-		if (*copy_s == c)//when found the breaker
-		{
-			if (sub_len > 0)//check the breaker has words already
-			{
-				to_allocate[sub_index] = (char *) malloc((sub_len + 1) * sizeof(char));
-				ft_memcpy(to_allocate[sub_index], s + sub_start, sub_len);//copy from where it should
-				to_allocate[sub_index][sub_len] = '\0';
-				sub_index++;//goes to next index of matix
-				sub_len = 0;//resets the len
-			}
-			sub_start = copy_s - s + 1; //in the next char might start he string
-		}
-		else
-		{
-			sub_len++; //if its not igual to the c then is a char to count
-		}
-
-		copy_s++; //analize the next char
-	}
-	return (to_allocate);
-}
 
 char	**ft_split(const char *s, char c)
 {
 	unsigned int	num_substr;
+	unsigned int	i;
 	char			**to_allocate;
-	char			**result;
-	
-	printf("helloooo");
+	const char		*start_substr;
+
+	i = 0;
 	num_substr = count_substr(s, c);
-//	to_allocate = allocate_substr(num_substr);
-//	if (to_allocate == NULL)
-//		return (NULL);
-//	result = extract_substr(to_allocate, s, c);
-	return (NULL);
+	to_allocate = ft_calloc((num_substr + 1), sizeof(char*));
+	if (to_allocate == NULL)
+		return (NULL);
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		if (*s)
+		{
+			start_substr = s;
+			while (*s && *s != c)
+				s++;
+			to_allocate[i] = ft_substr(start_substr, 0, s - start_substr);
+			if (!to_allocate[i])
+				return(ft_freematrix(to_allocate,i));
+			i++;
+		}
+	}
+	to_allocate[i] = NULL;
+	return(to_allocate);
 }
 
+/*int	main(void)
+{
+
+	char **lol;
+
+	lol = ft_split("  1  2222     3333333    4 5 6 7        ", ' ');
+		for (int i = 0; lol[i]; i++)
+			printf("'%s'\n", lol[i]);
+		printf("\n");
+		lol = ft_split("      split       this for   me  !       ", ' ');
+		for (int j = 0; lol[j]; j++)
+			printf("'%s'\n", lol[j]);
+		printf("\n");
+		lol = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
+		for (int k = 0; lol[k]; k++)
+			printf("'%s'\n", lol[k]);
+}*/
+
+
+/*
 //int	main (int argc, char **argv)
 int main(void)
 {
-	const char s[5] = "hola\0";
+	const char *s = "holaoondkdnnfjdnvo jndfjofo";
+
 	char c = 'o';
 	//char **result;
 	int i;
@@ -139,4 +127,4 @@ int main(void)
 	//	free(result);
 //	}
 	//return (result);
-}
+}*/

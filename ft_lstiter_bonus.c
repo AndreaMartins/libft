@@ -6,8 +6,17 @@
 /*   By: andmart2 <andmart2@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:50:10 by andmart2          #+#    #+#             */
-/*   Updated: 2023/05/22 12:50:12 by andmart2         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:24:26 by andmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
